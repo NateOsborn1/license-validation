@@ -3,21 +3,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const validateButton = document.getElementById('validateButton');
     const resultMessage = document.getElementById('resultMessage');
 
-    // Basic license key validation function
+    // Hardcoded valid license keys
+    const validLicenseKeys = [
+        'TABPRO-MONTHLY-1234-ABCD',
+        'TABPRO-YEARLY-5678-WXYZ'
+    ];
+
+    // Enhanced license key validation
     function isValidLicenseFormat(key) {
-        // Example format: TABPRO-XXXX-YYYY-ZZZZ
-        const licensePattern = /^TABPRO-[A-Z0-9]{4}-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
+        const licensePattern = /^TABPRO-(MONTHLY|YEARLY)-[A-Z0-9]{4}-[A-Z0-9]{4}$/;
         return licensePattern.test(key);
     }
 
-    // Simulate license validation (replace with actual backend logic)
+    // Validate license
     function validateLicense(key) {
-        // In a real scenario, this would be an API call
-        const validLicenseKeys = [
-            'TABPRO-1234-ABCD-5678',
-            'TABPRO-9876-WXYZ-4321'
-        ];
-
         return validLicenseKeys.includes(key);
     }
 
